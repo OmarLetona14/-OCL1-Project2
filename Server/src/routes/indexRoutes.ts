@@ -20,7 +20,7 @@ class IndexRoutes{
         });
         this.router.post('/analizador', (req, res)=>{
             var entrada=req.body.text;
-            var resultado=parser(entrada);
+            var resultado=grammar.parser(entrada);
             var json = JSON.stringify(resultado,null,2);
             json = json.split('lexema').join('text').split('lstNodo').join('children');
             console.log(json)
