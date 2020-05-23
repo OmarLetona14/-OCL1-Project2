@@ -1,8 +1,8 @@
 <html>
-    <title>Hola mundo</title>
+    <title>Analizador</title>
     <head> 
         <link rel="stylesheet" href="../css/bootstrap.min.css"> 
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.0.6/themes/default/style.min.css"> 
+        
         <script src="../js/editIndex.js"></script>
         <script src="../js/editIndex.js"></script>
         <script src="../js/jquery.min.js"></script>
@@ -12,119 +12,73 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.0.6/jstree.min.js"></script>
     </head>
     <body>
-        <header class="navbar bg-dark">
-            <div class="container-fluid">
-                <h1>Detector de copia Jav</h1>
-            </div>
-        </header>
-        <div class= "main row text-white bg-info col-md-12" >
-            <div class="col-md-6">               
-                <div class="form-group">
-                    <h3 id="h1s"> {{ . }} </h3>
-                    <label for="exampleFormControlTextarea1">Primer Codigo</label>
-                    <form>
-                        <textarea  type="text" class="form-control rounded-0"  rows="15" id="txtA1" name="txtA1"></textarea>
-                    </form>
+        <style>
+            body{
+                background-color: black;
+            }
+        </style>
+        <div class= "container p-3 my-3 bg-dark text-white">
+            <div class="row">
+                <div class="col">               
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Clase 1</label>
+                        <form>
+                            <textarea type="text" class="form-control rounded-0"  rows="15" id="txtA1" name="txtA1"></textarea>
+                        </form>
+                        
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Clase 2</label>
+                        <textarea class="form-control rounded-0"  rows="15" type="text" id="txtA2"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <form>
+                            <button type="button"  onclick="start()"class="btn btn-success btn-lg" >Analizar</button>
+                            <button type="button"  onclick="arbol()"class="btn btn-success btn-lg" >Arbol</button>
+                        </form>
+                        
+                    </div>
+                </div>
+                
+            <div class= "row">
+                <div class="col">    
+                    <h1>Arbol de analisis sintactico</h1>
+                    <div id="jstree-tree" class="list-group-item node-treeview5">
+                       <script>
+                           
+                       </script>
+                    </div>
+                </div>
+                <div class="col">
+                    <h1>Reporte de Errores</h1>
+                    <div class="table-wrapper-scroll-y my-custom-scrollbar">
+                        <table class="table table-striped table-dark" id="Table2">
+                            <tr>
+                                <th>No</th>
+                                <th>Lexema</th>
+                                <th>Descripcion</th>
+                                <th>Tipo</th>
+                                <th>Fila</th>
+                                <th>Columna</th>
+                            </tr>    
+                        </table>
+                    </div>
                     
-                </div>
-                <div class="">
-                    <form>
-                        <button type="button"  onclick="start()"class="btn btn-primary btn-lg" >Analizar</button>
-                        <button type="button"  onclick="arbol()"class="btn btn-primary btn-lg" >Refrsh</button>
-                    </form>
-                    
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    <h3> aver </h3>
-                    <label for="exampleFormControlTextarea1">Segundo Codigo</label>
-                    <textarea class="form-control rounded-0"  rows="15" type="text" id="txtA2"></textarea>
-                </div>
-            </div>
-        </div>
-        <div class= "main row text-black bg-info col-md-12">
-            <div class="col-md-6">    
-                <h1>Tree Codigo 1</h1>
-                <div id="jstree-tree" class="list-group-item node-treeview5">
-                   <script>
+                    <style type="text/css">
+                        .my-custom-scrollbar {
+                        position: relative;
+                        height: 200px;
+                        overflow: auto;
+                        }
+                        .table-wrapper-scroll-y {
+                        display: block;
+                        }
                        
-                   </script>
+                      </style>
                 </div>
             </div>
-            <div class="col-md-6">
-               <div class="">
-                    <div class="form-group">
-                        <h3> aver </h3>
-                        <label for="exampleFormControlTextarea1">Html</label>
-                        <textarea class="form-control rounded-5"  rows="6" id="txtA3" readonly></textarea>
-                    </div>
-               </div>
-               <div class=""> 
-                    <div class="form-group">
-                        <h3> aver </h3>
-                        <label for="exampleFormControlTextarea1">Json</label>
-                        <textarea class="form-control rounded-5" rows="6" id="txtA4" readonly></textarea>
-                    </div>
-                </div>  
-            </div>
-        </div>
-
-        <div class= "main row text-white bg-info col-md-12">
-            <div class="col-md-6">               
-                <h1>Reporte de Tokens</h1>
-                <div class="table-wrapper-scroll-y my-custom-scrollbar">
-                    <table class="table table-striped" id="Table1">
-                        <tr>
-                            <th>No</th>
-                            <th>Lexema</th>
-                            <th>Token</th>
-                            <th>Fila</th>
-                            <th>Columna</th>
-                        </tr>    
-                    </table>
-                </div>
-                
-                <style type="text/css">
-                    .my-custom-scrollbar {
-                    position: relative;
-                    height: 200px;
-                    overflow: auto;
-                    }
-                    .table-wrapper-scroll-y {
-                    display: block;
-                    }
-                  </style>
-            </div>
-            <div class="col-md-6">
-                <h1>Reporte de Errores</h1>
-                <div class="table-wrapper-scroll-y my-custom-scrollbar">
-                    <table class="table table-striped" id="Table2">
-                        <tr>
-                            <th>No</th>
-                            <th>Lexema</th>
-                            <th>Descripcion</th>
-                            <th>Tipo</th>
-                            <th>Fila</th>
-                            <th>Columna</th>
-                        </tr>    
-                    </table>
-                </div>
-                
-                <style type="text/css">
-                    .my-custom-scrollbar {
-                    position: relative;
-                    height: 200px;
-                    overflow: auto;
-                    }
-                    .table-wrapper-scroll-y {
-                    display: block;
-                    }
-                  </style>
-            </div>
-
-            
-        </div>
-
+        </div>         
     </body>
 </html>

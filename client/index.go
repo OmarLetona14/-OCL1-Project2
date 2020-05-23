@@ -7,9 +7,8 @@ import (
 )
 
 func index(w http.ResponseWriter, r *http.Request) {
-	Prueba := "Prueba A ver"
 	t := template.Must(template.ParseFiles("index.html"))
-	t.Execute(w, Prueba)
+	t.Execute(w, "")
 }
 
 func main() {

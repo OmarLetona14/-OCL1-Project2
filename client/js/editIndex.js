@@ -3,7 +3,7 @@ function start(){
     var texto = document.getElementById("txtA1").value;
     console.log(texto);
 
-    var url='http://localhost:3000/api/analizador';
+    var url='http://localhost:3050/api/analizador';
 
    
 
